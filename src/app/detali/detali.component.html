@@ -1,0 +1,101 @@
+<div class="container-fluid pb-5">
+    <div class="row px-xl-5">
+        <div class="col-lg-5 mb-30">
+            <img [src]="Data?.image?.large" style="margin-top:30%">
+        </div>
+
+        <div class="col-lg-7 h-auto mb-30">
+            <div class="h-100 bg-light p-30">
+                <h3 class="title">Name: </h3>
+                <h4>{{Data?.name}}</h4>
+                <div class="d-flex mb-3">
+                    <div class="text-primary mr-2">
+                        <h3 class="title">Symbol: </h3>
+                        <h4 class="text-center na">{{Data?.symbol}}</h4>
+                    </div>
+
+                </div>
+
+                <h3 class="title">Rank: </h3>
+                <h4 class="value">{{Data?.market_cap_rank}}</h4><br>
+
+                <h3 class="title ont-weight-semi-bold mb-4">Current Price: </h3>
+                <h4 class="value">{{Data?.market_data.current_price.usd
+                    | currency: "USD"}}</h4><br>
+
+                <h3 class="title">Market Cap: </h3>
+                <h4 class="value">{{Data?.market_data.market_cap.usd |
+                    currency:"USD"}}</h4><br>
+
+                <h3 class="title">Circulating Supply: </h3>
+                <h4 class="value">{{Data?.market_data.circulating_supply |
+                    number}}</h4><br>
+
+                <h3 class="title">Max Supply: </h3>
+                <h4 class="value">{{Data?.market_data.max_supply |
+                    number}}</h4><br>
+            </div>
+        </div>
+    </div>
+
+    <div class="row px-xl-5">
+        <div class="col">
+            <div class="bg-light p-30">
+
+                <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                      <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Description</button>
+                      <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Chart</button>
+                    </div>
+                  </nav>
+                  <div class="tab-content" id="nav-tabContent">
+
+                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <h3 class="mb-3 d-flex justify-content-center">Description</h3>
+                        <h4 [innerHTML]="Data?.description?.en"></h4>
+                    </div>
+
+                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                        <h3 class="d-flex justify-content-center">Chart Section</h3>
+                        <div class="col-md-12">
+                            <canvas style="width: 100%;" baseChart [data]="lineChartData" [options]="lineChartOptions" [type]="lineChartType"></canvas>
+                            <div class="d-flex justify-content-around">
+                                <button (click)="graphData(1)" class="btn cc">24 hours</button>
+                                <button (click)="graphData(30)" class="btn cc">30 days</button>
+                                <button (click)="graphData(90)" class="btn cc">90 days</button>
+                                <button (click)="graphData(365)" class="btn cc">1 year</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                  </div>
+
+                <!-- <div class="nav nav-tabs mb-4">
+                    <a class="nav-item nav-link text-dark active" data-toggle="tab" href="#tab-pane-1">Description</a>
+                    <a class="nav-item nav-link text-dark" data-toggle="tab" href="#tab-pane-2">Chart</a>
+
+                </div>
+
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="tab-pane-1">
+                        <h4 class="mb-3">Description</h4>
+                        <h4 [innerHTML]="Data?.description?.en"></h4>
+
+
+                    </div>
+                    <div class="tab-pane fade" id="tab-pane-2">
+                        <h4 class="mb-3">Chart</h4>
+
+                        <p>chart section</p>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+</div>
+
+<app-footer></app-footer>
